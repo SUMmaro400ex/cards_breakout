@@ -27,7 +27,10 @@ describe Deck do
     end
 
     it 'correctly built a deck of cards' do
-      expect(subject.cards.sample).to_not be subject.cards.sample
+      cards = described_class.new.cards
+      52.times do
+        expect(cards.delete_at(0)).to_not be cards.sample
+      end
 
       expect(1..13).to cover(subject.cards.sample.value)
 
