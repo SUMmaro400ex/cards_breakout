@@ -1,5 +1,10 @@
 class Card
   attr_reader :value, :suit
+
+  ## Constants
+  SUITS = ["Hearts", "Spades", "Clubs", "Diamonds"]
+  VALUES = (1..13)
+
   def initialize(value, suit)
     @value = value.to_i
     @suit = suit.to_s.capitalize
@@ -7,12 +12,12 @@ class Card
   end
 
   def validate_arguments
-    raise ArgumentError unless (1..13).include? value
-    raise ArgumentError unless ["Hearts", "Spades", "Clubs", "Diamonds"].include? suit
+    raise ArgumentError unless VALUES.include? value
+    raise ArgumentError unless SUITS.include? suit
   end
 
   def face
-    case @value
+    case value
     when 1
       "Ace"
     when 11
@@ -22,7 +27,7 @@ class Card
     when 13
       "King"
     else
-      @value
+      value
     end
   end
 

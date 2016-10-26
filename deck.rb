@@ -6,8 +6,8 @@ class Deck
   end
 
   def setup_cards
-    ["hearts", "spades", "clubs", "diamonds"].each do |suit|
-      (1..13).each do |value|
+    Card.SUITS.each do |suit|
+      Card.VALUES.each do |value|
         cards << Card.new(value, suit)
       end
     end
