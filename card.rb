@@ -12,8 +12,7 @@ class Card
   end
 
   def validate_arguments
-    raise ArgumentError unless VALUES.include? value
-    raise ArgumentError unless SUITS.include? suit
+    raise ArgumentError unless VALUES.include?(value) && SUITS.include?(suit)
   end
 
   def face
